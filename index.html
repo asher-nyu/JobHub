@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobHub</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #00ffcc;
+            text-shadow: 0 0 10px #00ffcc;
+            margin-bottom: 20px;
+        }
+
+        .bookmark-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .folder {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .folder:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .folder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .folder:hover::before {
+            opacity: 1;
+        }
+
+        .folder h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #00ffcc;
+        }
+
+        .folder ul {
+            margin: 10px 0 0;
+            padding: 0;
+            list-style: none;
+            font-size: 0.9em;
+            color: #b0b0b0;
+        }
+
+        .folder a {
+            color: #00ccff;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer; /* Pointer for hyperlinks */
+        }
+
+        .folder a:hover {
+            color: #ff66cc;
+            text-decoration: underline;
+        }
+
+        @keyframes neonGlow {
+            0% { text-shadow: 0 0 10px #00ffcc; }
+            50% { text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc; }
+            100% { text-shadow: 0 0 10px #00ffcc; }
+        }
+
+        h1 {
+            animation: neonGlow 2s infinite;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="favicon.png" rel="icon" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Jobs</h1>
+        <div class="bookmark-grid" id="bookmarkGrid">
+
+
+            <!-- Folder with Bookmarks -->
+            <div class="folder">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/asher08/" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://swift-resume.com" target="_blank">SwiftResume</a></li>
+                    <li><a href="https://swift-resume.com/asher" target="_blank">Secure Notes</a></li>
+                    <li><a href="https://www.overleaf.com/project/67c60c4dc60c322ae75fbc67" target="_blank">Offer Letter - Overleaf</a></li>
+                </ul>
+            </div>
+
+            <div class="folder">
+                <h3>GitHub</h3>
+                <ul>
+                    <li><a href="https://github.com/SimplifyJobs/Summer2026-Internships?tab=readme-ov-file" target="_blank">Internships</a></li>
+                    <li><a href="https://github.com/SimplifyJobs/Summer2026-Internships/blob/dev/README-Off-Season.md" target="_blank">Internships</a></li>
+                    <li><a href="https://github.com/vanshb03/Summer2026-Internships/blob/dev/OFFSEASON_README.md" target="_blank">Internships</a></li>
+                    <li><a href="https://github.com/vanshb03/Summer2026-Internships" target="_blank">Internships</a></li>
+                </ul>
+            </div>
+
+            <div class="folder">
+                <h3>Handshake</h3>
+                <ul>
+                    <li><a href="https://nyu.joinhandshake.com/stu/postings?page=1&per_page=200&sort_direction=desc&sort_column=created_at&job.job_types%5B%5D=6&job.job_applicant_preference.work_auth_not_required=false&job.salary_types%5B%5D=1&locations%5B%5D%5Blabel%5D=New%20York%20City%2C%20New%20York%2C%20United%20States&locations%5B%5D%5Bname%5D=New%20York%20City%2C%20New%20York%2C%20United%20States&locations%5B%5D%5Bdistance%5D=50mi&locations%5B%5D%5Bpoint%5D=40.7127492%2C%20-74.0059945&locations%5B%5D%5Blatitude%5D=40.7127492&locations%5B%5D%5Blongitude%5D=-74.0059945" target="_blank">On Campus</a></li>
+                    <li><a href="https://nyu.joinhandshake.com/job-search/9861723?query=user+interface&pay%5BsalaryType%5D=1&per_page=25&jobType=3&sort=relevance&locationFilter=%7B%22label%22:%22New+York+City,+New+York,+United+States%22,%22point%22:%2240.7127492,-74.0059945%22,%22type%22:%22place%22,%22id%22:%22131082759%22,%22distance%22:%2250mi%22%7D&page=1" target="_blank">user interface</a></li>
+                    <li><a href="https://nyu.joinhandshake.com/job-search/9970969?query=web+developer&pay%5BsalaryType%5D=1&per_page=25&jobType=3&sort=relevance&locationFilter=%7B%22label%22%3A%22New+York+City%2C+New+York%2C+United+States%22%2C%22point%22%3A%2240.7127492%2C-74.0059945%22%2C%22type%22%3A%22place%22%2C%22id%22%3A%22131082759%22%2C%22distance%22%3A%2250mi%22%7D&page=1" target="_blank">web developer</a></li>
+                    <li><a href="https://nyu.joinhandshake.com/job-search/9658120?query=user+experience&pay%5BsalaryType%5D=1&per_page=25&jobType=3&sort=relevance&locationFilter=%7B%22label%22:%22New+York+City,+New+York,+United+States%22,%22point%22:%2240.7127492,-74.0059945%22,%22type%22:%22place%22,%22id%22:%22131082759%22,%22distance%22:%2250mi%22%7D&page=1" target="_blank">user experience</a></li>
+                    <li><a href="https://nyu.joinhandshake.com/job-search/9967467?query=software+engineer&pay%5BsalaryType%5D=1&per_page=25&jobType=3&sort=relevance&locationFilter=%7B%22label%22%3A%22New+York+City%2C+New+York%2C+United+States%22%2C%22point%22%3A%2240.7127492%2C-74.0059945%22%2C%22type%22%3A%22place%22%2C%22id%22%3A%22131082759%22%2C%22distance%22%3A%2225mi%22%7D&page=1" target="_blank">software engineer</a></li>
+                    <li><a href="https://nyu.joinhandshake.com/job-search/9658120?query=ui+ux&pay%5BsalaryType%5D=1&per_page=25&jobType=3&locationFilter=%7B%22label%22:%22New+York+City,+New+York,+United+States%22,%22point%22:%2240.7127492,-74.0059945%22,%22type%22:%22place%22,%22id%22:%22131082759%22,%22distance%22:%2250mi%22%7D&page=1" target="_blank">ui ux</a></li>
+                </ul>
+            </div>
+
+            <div class="folder">
+                <h3>LinkedIn</h3>
+                <ul>
+                    <li><a href="https://www.linkedin.com/jobs/search/?currentJobId=4233407197&distance=10&f_E=1&geoId=102571732&keywords=user%20interface&origin=JOB_SEARCH_PAGE_JOB_FILTER&refresh=true" target="_blank">user interface</a></li>
+                    <li><a href="https://www.linkedin.com/jobs/search/?currentJobId=4243801741&distance=10&f_E=1&geoId=102571732&keywords=web%20developer&origin=JOB_SEARCH_PAGE_JOB_FILTER&refresh=true" target="_blank">web developer</a></li>
+                    <li><a href="https://www.linkedin.com/jobs/search/?currentJobId=4103940685&distance=10&f_E=1&geoId=102571732&keywords=user%20experience&origin=JOB_SEARCH_PAGE_JOB_FILTER&refresh=true" target="_blank">user experience</a></li>
+                    <li><a href="https://www.linkedin.com/jobs/search/?currentJobId=4223845892&distance=10&f_E=1&geoId=102571732&keywords=software%20engineer&origin=JOB_SEARCH_PAGE_KEYWORD_AUTOCOMPLETE&refresh=true" target="_blank">software engineer</a></li>
+                    <li><a href="https://www.linkedin.com/jobs/search/?currentJobId=4222102678&distance=10&f_E=1&geoId=102571732&keywords=ui%20ux&origin=JOB_SEARCH_PAGE_SEARCH_BUTTON&refresh=true" target="_blank">ui ux</a></li>
+                </ul>
+            </div>
+
+            <div class="folder">
+                <h3>Simplify</h3>
+                <ul>
+                    <li><a href="https://simplify.jobs/jobs?query=user%20interface&state=New%20York%2C%20NY%2C%20USA&points=40.915533%3B-73.700009%3B40.496134%3B-74.255591&experience=Internship&h1b=true&jobId=d0b8453b-c3ef-4835-a743-e8006abd265a" target="_blank">user interface</a></li>
+                    <li><a href="https://simplify.jobs/jobs?query=web%20developer&state=New%20York%2C%20NY%2C%20USA&points=40.915533%3B-73.700009%3B40.496134%3B-74.255591&experience=Internship&h1b=true&jobId=0a61c01c-d6c3-41b7-8e79-ecde5bae7780" target="_blank">web developer</a></li>
+                    <li><a href="https://simplify.jobs/jobs?query=user%20experience&state=New%20York%2C%20NY%2C%20USA&points=40.915533%3B-73.700009%3B40.496134%3B-74.255591&experience=Internship&h1b=true&jobId=d0b8453b-c3ef-4835-a743-e8006abd265a" target="_blank">user experience</a></li>
+                    <li><a href="https://simplify.jobs/jobs?query=software&state=New%20York%2C%20NY%2C%20USA&points=40.915533%3B-73.700009%3B40.496134%3B-74.255591&experience=Internship&h1b=true&jobId=81d7ccda-dfee-4208-92db-ed4f57441699" target="_blank">software</a></li>
+                    <li><a href="https://simplify.jobs/jobs?query=ui%20ux&state=New%20York%2C%20NY%2C%20USA&points=40.915533%3B-73.700009%3B40.496134%3B-74.255591&experience=Internship&h1b=true" target="_blank">ui ux</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
