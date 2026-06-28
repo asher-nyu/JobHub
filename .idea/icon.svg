@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="512" cy="512" rx="512" ry="512" fill="#1a1a2e" style=""/>
+  <circle cx="512" cy="512" r="400" fill="none" stroke="#00ffcc" stroke-width="60" stroke-opacity="0.3"/>
+  <circle cx="512" cy="512" r="180" fill="none" stroke="#00ffcc" stroke-width="80" stroke-opacity="0.8" style="stroke-width: 48;"/>
+  <g stroke="#00ffcc" stroke-width="20" stroke-opacity="0.5" stroke-dasharray="20,20">
+    <line x1="512" y1="112" x2="512" y2="412"/>
+    <line x1="512" y1="612" x2="512" y2="912"/>
+    <line x1="112" y1="512" x2="412" y2="512"/>
+    <line x1="612" y1="512" x2="912" y2="512"/>
+  </g>
+  <circle cx="512" cy="512" r="50" fill="#00ffcc" fill-opacity="0.8">
+    <animate attributeName="r" values="50;60;50" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>
