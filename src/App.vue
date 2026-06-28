@@ -142,7 +142,7 @@ const folders = [
       },
       {
         label: 'Bulletify',
-        href: 'https://asher-nyu.github.io/Bulletify/'
+        href: 'https://bulletify.vercel.app'
       },
       {
         label: 'SwiftResume',
